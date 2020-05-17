@@ -1,6 +1,6 @@
 # Computer Hardware Estimation using Hierarchical Poisson Regression
 
-Capstone project report of the course: Bayesian Statistics - Techniques and Models
+Capstone project report of the course: [Bayesian Statistics - Techniques and Models](https://www.coursera.org/learn/mcmc-bayesian-statistics/home/welcome)
 
 ## 1. Problem and Data description
 
