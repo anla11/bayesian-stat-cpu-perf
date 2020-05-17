@@ -1,7 +1,5 @@
 # Computer Hardware Estimation using Hierarchical Poisson Regression
 
-Capstone project report of the course: [Bayesian Statistics - Techniques and Models](https://www.coursera.org/learn/mcmc-bayesian-statistics/home/welcome)
-
 ## 1. Problem and Data description
 
 The dataset was collected from 209 computers on the market from 1981 - 1984, with machine names and 7 attributes:
