@@ -1,6 +1,16 @@
-# Computer Hardware Estimation using Hierarchical Poisson Regression
+# Computer Hardware's Performance Estimation using Hierarchical Poisson Regression
 
-## 1. Problem and Data description
+Computer Hardware Estimation is a task that approximates CPU performance based on system configuration and design. It can be explained as a regression analysis: indicating the relationship between computer’s attributes (vendor and model name, memory size, number of input/output channels) and performance measurement metric called Published Relative Performance (PRP). To solve this problem, I conducted experiments with linear and poisson regression and considered using log2 transformation for variables. Poisson model seems to be more complex but lower in residual. Finally, I constructed a hierachical model to improve the DIC. According to the result, hierachical structure extending from poisson regression with log2 transformation of some attributes is the best solution.
+
+---
+
+## 1. Introduction
+
+CPU performance is one of the most important factors to evaluate computers, reflects how fast computers running programs. Executing time is depend on system configuration and design: Main/cache memory, number of input/output channel. To measure and compare this characteristic, previous researches use a measurement metric called Published Relative Performance (PRP).
+Qi Zhou et al handled this long-standing challenge by statistical analyses. They examined carefully each dependent variable and found that the best solution when using linear regression was applying log transformation to some independent variables and PRP. Their result of estimating PRP was saved at ERP variable in the dataset.
+In this work, I tried many ways to estimate PRP. My first approach was basically poisson regression as a "traditional" solution of predicting counting number. Taking inspiration from Qi Zhou et al, I also checked out linear regression with log transformation. After that, I compared poisson regression and linear regression. Finally, I constructed a hierarchical graph, based on assumption that computers from same vendor are more likely to be similar than those from different vendors.
+
+## 2. Problem and Data description
 
 The dataset was collected from 209 computers on the market from 1981 - 1984, with machine names and 7 attributes:
 - Vendor name (30 unique names)
@@ -22,7 +32,7 @@ For full dataset, more details of data description and Qi Zhou, see this link:
 - [https://archive.ics.uci.edu/ml/datasets/Computer+Hardware](https://archive.ics.uci.edu/ml/datasets/Computer+Hardware).
 - [https://www.slideshare.net/QiGilbertZhou/evaluating-cpu-performance](https://www.slideshare.net/QiGilbertZhou/evaluating-cpu-performance).
 
-## 2. Explore data
+## 3. Explore data
 
 PRP has poisson data shape. As a "traditional" solution of predicting counting number, I immediately think of poisson regression. Beside that, poisson distribution can be seen as right-skew normal distribution, then skewness can be removed by using log transformation. Therefore, using log of PRP, we can apply linear regression. 
 
@@ -44,7 +54,7 @@ After this exploring data, I decided to:
 - Compare using those model with and without log transformation of MYCT, MMIN, MMAX.
 - Construct hierachical model.
 
-## 3. Model
+## 4. Models
 
 - Linear Regression with target is log(PRP)
 - Poisson Regression 
@@ -53,7 +63,7 @@ After this exploring data, I decided to:
 
 ![Vendor and PRP](/images/equations.png)
 
-## 4. Results
+## 5. Results
 
 - Convergence: Linear Regression with log(PRP) is easy to reach convergence (lag 50). The second one is Poisson
 Regression. When using log of MYCT, MMIN, MMAX, coefficients of those variables need larger number of iterators
