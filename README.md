@@ -6,8 +6,8 @@ Computer Hardware Estimation is a task that approximates CPU performance based o
 
 ## 1. Introduction
 
-CPU performance is one of the most important factors to evaluate computers, reflects how fast computers running programs. Executing time is depend on system configuration and design: Main/cache memory, number of input/output channel. To measure and compare this characteristic, previous researches use a measurement metric called Published Relative Performance (PRP).
-Qi Zhou et al handled this long-standing challenge by statistical analyses. They examined carefully each dependent variable and found that the best solution when using linear regression was applying log transformation to some independent variables and PRP. Their result of estimating PRP was saved at ERP variable in the dataset.
+CPU performance is one of the most important factors to evaluate computers, reflects how fast computers running programs. Executing time is depend on system configuration and design: Main/cache memory, number of input/output channel. To measure and compare this characteristic, previous researches use a measurement metric called Published Relative Performance (PRP). Qi Zhou et al handled this long-standing challenge by statistical analyses. They examined carefully each dependent variable and found that the best solution when using linear regression was applying log transformation to some independent variables and PRP. Their result of estimating PRP was saved at ERP variable in the dataset.
+
 In this work, I tried many ways to estimate PRP. My first approach was basically poisson regression as a "traditional" solution of predicting counting number. Taking inspiration from Qi Zhou et al, I also checked out linear regression with log transformation. After that, I compared poisson regression and linear regression. Finally, I constructed a hierarchical graph, based on assumption that computers from same vendor are more likely to be similar than those from different vendors.
 
 ## 2. Problem and Data description
